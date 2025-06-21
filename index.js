@@ -48,9 +48,13 @@ function cardClicked(target) {
     console.log(target.textContent);
     if (selectedCard[0] === null) {
         selectedCard[0] = target;
-    } else if (selectedCard[1] === null) {
+        target.style.color = "black";
+    } else if (selectedCard[1] === null && target !== selectedCard[0]) {
         selectedCard[1] = target;
-        checkSame(selectedCard[0], selectedCard[1]);
+        target.style.color = "black";
+        setTimeout(() => {
+            checkSame(selectedCard[0], selectedCard[1]);
+        }, 1000);
     }
 }
 
@@ -63,6 +67,8 @@ function checkSame(left, right) {
         console.log("correct");
     } else {
         console.log("wrong");
+        left.style.color = "transparent";
+        right.style.color = "transparent";
     }
     selectedCard = [null, null];
     console.log(selectedCard);
