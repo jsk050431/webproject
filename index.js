@@ -35,6 +35,38 @@ function gameStart(cardNum) {
     let cards = startSet.makeCards(cardNum);
     cards = startSet.suffleCard(cards);
     startSet.assignNumberToCard(cards);
+    document
+        .getElementById("gameview")
+        .addEventListener("click", function (event) {
+            if (event.target.className === "card") {
+                cardClicked(event.target);
+            }
+        });
+}
+
+function cardClicked(target) {
+    console.log(target.textContent);
+    if (selectedCard[0] === null) {
+        selectedCard[0] = target;
+    } else if (selectedCard[1] === null) {
+        selectedCard[1] = target;
+        checkSame(selectedCard[0], selectedCard[1]);
+    }
+}
+
+function checkSame(left, right) {
+    if (left.textContent === right.textContent) {
+        [left, right].forEach((i) => {
+            i.style.borderColor = "transparent";
+            i.textContent = "";
+        });
+        console.log("correct");
+    } else {
+        console.log("wrong");
+    }
+    selectedCard = [null, null];
+    console.log(selectedCard);
 }
 
 gameStart(20);
+let selectedCard = [null, null];
