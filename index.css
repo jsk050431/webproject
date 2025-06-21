@@ -1,0 +1,18 @@
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+main div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+main div div {
+    border: 1px solid black;
+    width: 120px;
+    height: 120px;
+}
