@@ -11,7 +11,7 @@ main div {
     gap: 20px;
 }
 
-main div div {
+.card {
     display: flex;
     align-items: center;
     border: 1px solid black;
