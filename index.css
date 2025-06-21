@@ -12,7 +12,10 @@ main div {
 }
 
 main div div {
+    display: flex;
+    align-items: center;
     border: 1px solid black;
     width: 120px;
     height: 120px;
+    font-size: 30px;
 }
