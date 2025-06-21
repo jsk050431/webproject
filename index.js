@@ -3,8 +3,8 @@ function getRand(min, max) {
 }
 
 let startSet = {
-    makeCards: function (cardNum) {
-        return Array.from({ length: cardNum });
+    makeCards: function () {
+        return Array.from({ length: 20 });
     },
     suffleCard: function (cardArr) {
         for (let i = 1; i <= 10; i++) {
@@ -31,8 +31,8 @@ let startSet = {
     },
 };
 
-function gameStart(cardNum) {
-    let cards = startSet.makeCards(cardNum);
+function gameStart() {
+    let cards = startSet.makeCards();
     cards = startSet.suffleCard(cards);
     startSet.assignNumberToCard(cards);
     document
@@ -76,6 +76,6 @@ function checkSame(left, right) {
     console.log(selectedCard);
 }
 
-gameStart(20);
+gameStart();
 let selectedCard = [null, null];
 let wait = false;
