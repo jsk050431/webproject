@@ -38,7 +38,7 @@ function gameStart(cardNum) {
     document
         .getElementById("gameview")
         .addEventListener("click", function (event) {
-            if (event.target.className === "card") {
+            if (!wait && event.target.className === "card") {
                 cardClicked(event.target);
             }
         });
@@ -52,7 +52,9 @@ function cardClicked(target) {
     } else if (selectedCard[1] === null && target !== selectedCard[0]) {
         selectedCard[1] = target;
         target.style.color = "black";
+        wait = true;
         setTimeout(() => {
+            wait = false;
             checkSame(selectedCard[0], selectedCard[1]);
         }, 1000);
     }
@@ -76,3 +78,4 @@ function checkSame(left, right) {
 
 gameStart(20);
 let selectedCard = [null, null];
+let wait = false;
