@@ -19,6 +19,7 @@ main div {
     height: 120px;
     font-size: 30px;
     color: transparent;
+    cursor: default;
 }
 
 .card_transition {
