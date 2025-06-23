@@ -14,7 +14,7 @@ main div {
 .card {
     display: flex;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid black;        
     width: 120px;
     height: 120px;
     font-size: 30px;
@@ -24,4 +24,8 @@ main div {
 
 .card_transition {
     transition: background-color 0.2s ease-out;
+}
+
+.leftCard:hover {
+    background-color: #eeeeee;
 }

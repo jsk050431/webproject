@@ -38,7 +38,7 @@ function gameStart() {
     document
         .getElementById("gameview")
         .addEventListener("click", function (event) {
-            if (!wait && event.target.className === "card") {
+            if (!wait && event.target.classList.contains("card")) {
                 cardClicked(event.target);
             }
         });
@@ -65,6 +65,7 @@ function checkSame(left, right) {
         [left, right].forEach((i) => {
             i.style.borderColor = "transparent";
             i.textContent = "";
+            i.classList.remove("leftCard");
         });
         matchEffect.correct([left, right]);
         console.log("correct");
