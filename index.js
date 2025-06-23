@@ -38,7 +38,7 @@ function gameStart() {
     document
         .getElementById("gameview")
         .addEventListener("click", function (event) {
-            if (!wait && event.target.classList.contains("card")) {
+            if (!wait && event.target.classList.contains("leftCard")) {
                 cardClicked(event.target);
             }
         });
