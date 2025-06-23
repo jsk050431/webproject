@@ -93,7 +93,7 @@ function colorTransition(targets, color) {
         i.style.backgroundColor = color;
         setTimeout(() => {
             i.classList.add("card_transition");
-            i.style.backgroundColor = "white";
+            i.style.backgroundColor = "";
         }, 0);
         setTimeout(() => {
             i.classList.remove("card_transition");
