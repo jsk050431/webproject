@@ -20,3 +20,7 @@ main div {
     font-size: 30px;
     color: transparent;
 }
+
+.card_transition {
+    transition: background-color 0.2s ease-out;
+}

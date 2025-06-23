@@ -66,14 +66,38 @@ function checkSame(left, right) {
             i.style.borderColor = "transparent";
             i.textContent = "";
         });
+        matchEffect.correct([left, right]);
         console.log("correct");
     } else {
         console.log("wrong");
         left.style.color = "transparent";
         right.style.color = "transparent";
+        matchEffect.wrong([left, right]);
     }
     selectedCard = [null, null];
     console.log(selectedCard);
+}
+
+let matchEffect = {
+    correct: function (targets) {
+        colorTransition(targets, "skyblue");
+    },
+    wrong: function (targets) {
+        colorTransition(targets, "pink");
+    },
+};
+
+function colorTransition(targets, color) {
+    targets.forEach((i) => {
+        i.style.backgroundColor = color;
+        setTimeout(() => {
+            i.classList.add("card_transition");
+            i.style.backgroundColor = "white";
+        }, 0);
+        setTimeout(() => {
+            i.classList.remove("card_transition");
+        }, 200);
+    });
 }
 
 gameStart();
