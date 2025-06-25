@@ -21,6 +21,10 @@ main div {
     cursor: default;
 }
 
+.leftCard:hover {
+    background-color: #eeeeee;
+}
+
 .card_hidden {
     color: transparent;
 }
@@ -39,8 +43,4 @@ main div {
 
 .card_transition {
     transition: background-color 0.2s ease-out;
-}
-
-.leftCard:hover {
-    background-color: #eeeeee;
 }
