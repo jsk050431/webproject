@@ -17,10 +17,8 @@ let startSet = {
         let index = 0;
         Array.from(document.getElementById("gameview").children).forEach(
             (target) => {
-                Array.from(target.children).forEach((child) => {
-                    child.textContent = cardArr[index];
-                    index++;
-                });
+                target.textContent = cardArr[index];
+                index++;
             }
         );
     },
@@ -28,7 +26,9 @@ let startSet = {
 
 function gameStart() {
     let cards = startSet.makeCards();
+    console.log(cards);
     cards = startSet.suffleCard(cards);
+    console.log(cards);
     startSet.assignNumberToCard(cards);
     document
         .getElementById("gameview")

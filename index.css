@@ -1,14 +1,14 @@
-main {
-    display: flex;
-    flex-direction: column;
+#gameview {
+    display: grid;
+    grid-template-columns: repeat(5,120px);
     gap: 20px;
+    justify-content: center;
 }
 
-main div {
+#gameview div {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 20px;
 }
 
 .card {
