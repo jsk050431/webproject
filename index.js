@@ -4,19 +4,18 @@ function getRand(min, max) {
 
 let startSet = {
     makeCards: function () {
-        return Array.from({ length: 20 });
-    },
-    suffleCard: function (cardArr) {
-        for (let i = 1; i <= 10; i++) {
-            for (let j = 0; j < 2; j++) {
-                let index;
-                do {
-                    index = getRand(0, 19);
-                } while (cardArr[index] !== undefined);
-                cardArr[index] = i;
-            }
+        let arr = [];
+        for (let n = 1; n <= 10; n++) {
+            arr.push(n, n);
         }
-        return cardArr;
+        return arr;
+    },
+    suffleCard: function (arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
     },
     assignNumberToCard: function (cardArr) {
         let index = 0;
@@ -91,7 +90,7 @@ let matchEffect = {
 function colorTransition(targets, color) {
     targets.forEach((i) => {
         i.classList.toggle(color);
-        
+
         requestAnimationFrame(() => {
             i.classList.add("card_transition");
             requestAnimationFrame(() => {
