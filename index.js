@@ -56,7 +56,7 @@ function cardClicked(target) {
         setTimeout(() => {
             wait = false;
             checkSame(selectedCard[0], selectedCard[1]);
-        }, 1000);
+        }, 600);
     }
 }
 
