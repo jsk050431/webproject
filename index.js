@@ -91,13 +91,17 @@ let matchEffect = {
 function colorTransition(targets, color) {
     targets.forEach((i) => {
         i.style.backgroundColor = color;
-        setTimeout(() => {
+
+        requestAnimationFrame(() => {
             i.classList.add("card_transition");
-            i.style.backgroundColor = "";
-        }, 0);
+            requestAnimationFrame(() => {
+                i.style.backgroundColor = "white";
+            });
+        });
+
         setTimeout(() => {
             i.classList.remove("card_transition");
-        }, 200);
+        }, 250);
     });
 }
 
