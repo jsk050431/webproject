@@ -48,10 +48,10 @@ function cardClicked(target) {
     console.log(target.textContent);
     if (selectedCard[0] === null) {
         selectedCard[0] = target;
-        target.style.color = "black";
+        target.classList.toggle("card_hidden");
     } else if (selectedCard[1] === null && target !== selectedCard[0]) {
         selectedCard[1] = target;
-        target.style.color = "black";
+        target.classList.toggle("card_hidden");
         wait = true;
         setTimeout(() => {
             wait = false;
@@ -63,7 +63,7 @@ function cardClicked(target) {
 function checkSame(left, right) {
     if (left.textContent === right.textContent) {
         [left, right].forEach((i) => {
-            i.style.borderColor = "transparent";
+            i.classList.add("card_matched");
             i.textContent = "";
             i.classList.remove("leftCard");
         });
@@ -71,8 +71,8 @@ function checkSame(left, right) {
         console.log("correct");
     } else {
         console.log("wrong");
-        left.style.color = "transparent";
-        right.style.color = "transparent";
+        left.classList.toggle("card_hidden");
+        right.classList.toggle("card_hidden");
         matchEffect.wrong([left, right]);
     }
     selectedCard = [null, null];
@@ -81,21 +81,21 @@ function checkSame(left, right) {
 
 let matchEffect = {
     correct: function (targets) {
-        colorTransition(targets, "skyblue");
+        colorTransition(targets, "color_correct");
     },
     wrong: function (targets) {
-        colorTransition(targets, "pink");
+        colorTransition(targets, "color_wrong");
     },
 };
 
 function colorTransition(targets, color) {
     targets.forEach((i) => {
-        i.style.backgroundColor = color;
-
+        i.classList.toggle(color);
+        
         requestAnimationFrame(() => {
             i.classList.add("card_transition");
             requestAnimationFrame(() => {
-                i.style.backgroundColor = "white";
+                i.classList.toggle(color);
             });
         });
 

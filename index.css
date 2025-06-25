@@ -18,8 +18,23 @@ main div {
     width: 120px;
     height: 120px;
     font-size: 30px;
-    color: transparent;
     cursor: default;
+}
+
+.card_hidden {
+    color: transparent;
+}
+
+.card_matched {
+    border-color: transparent;
+}
+
+.color_correct {
+    background-color: skyblue;
+}
+
+.color_wrong {
+    background-color: pink;
 }
 
 .card_transition {
