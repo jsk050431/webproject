@@ -17,7 +17,7 @@ class CardFlipGame {
         this.gameboard.addEventListener("click", (event) => {
             if (
                 !this.isPreventingClick &&
-                event.target.classList.contains("leftCard")
+                event.target.classList.contains("card_cursor")
             ) {
                 this.cardClicked(event.target);
             }
@@ -44,7 +44,7 @@ class CardFlipGame {
     printCards() {
         this.cards.forEach((num) => {
             let target = document.createElement("div");
-            target.className = "card leftCard card_hidden";
+            target.className = "card card_cursor card_hidden";
             target.textContent = num;
             console.log(target);
             this.gameboard.appendChild(target);
@@ -73,16 +73,22 @@ class CardFlipGame {
         if (left.textContent === right.textContent) {
             [left, right].forEach((i) => {
                 i.classList.add("card_matched");
+                i.classList.remove("card_cursor");
                 i.textContent = "";
-                i.classList.remove("leftCard");
             });
-            this.colorTransition([left, right], 'color_correct');
+            this.colorTransition([left, right], "color_correct");
             console.log("correct");
         } else {
             console.log("wrong");
-            left.classList.add("card_hidden");
-            right.classList.add("card_hidden");
-            this.colorTransition([left, right], 'color_wrong');
+            [left, right].forEach((i) => {
+                i.classList.add("card_hidden");
+                i.classList.remove("card_cursor");
+            });
+            this.colorTransition([left, right], "color_wrong");
+            setTimeout(() => {
+                left.classList.add("card_cursor");
+                right.classList.add("card_cursor");
+            }, 100);
         }
         this.selectedCard = [null, null];
         console.log(this.selectedCard);
@@ -90,12 +96,12 @@ class CardFlipGame {
 
     colorTransition(targets, color_class) {
         targets.forEach((i) => {
-            i.classList.toggle(color_class);
+            i.classList.add(color_class);
 
             requestAnimationFrame(() => {
                 i.classList.add("card_transition");
                 requestAnimationFrame(() => {
-                    i.classList.toggle(color_class);
+                    i.classList.remove(color_class);
                 });
             });
 

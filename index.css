@@ -21,7 +21,7 @@
     cursor: default;
 }
 
-.leftCard:hover {
+.card_cursor:hover {
     background-color: #eeeeee;
 }
 
