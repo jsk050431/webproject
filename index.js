@@ -26,7 +26,7 @@ class CardFlipGame {
 
     makeCards() {
         let arr = this.cards;
-        for (let n = 1; n <= 10; n++) {
+        for (let n = 1; n <= this.pairCount; n++) {
             arr.push(n, n);
         }
         console.log(arr);
